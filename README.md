@@ -21,7 +21,7 @@ This practice is based on the **W3Schools** tutorials. I read about:
 
 
 This repository contains my beginner practice while learning the fundamentals of Object-Oriented Programming in Python.
-## After
+## updating this for library:
 
 I extended this project by creating a **Library** class that stores and manages multiple **Book** objects.
 The `Library` class acts as a **manager class**, which is responsible for keeping a collection of books and providing methods to add and display them. A manager class is not a special Python feature—it is a common object-oriented programming (OOP) design technique used to organize related objects and their behavior.
@@ -46,7 +46,6 @@ python3 main-library.py
 ✓ each required files have been finished and pushed to GitHub.
 ✓ The project runs without errors.
 
-If you're using GitHub, though, I recommend keeping the Markdown checkboxes (- [ ] and - [x]) because GitHub renders them as interactive checklists.
 
 
 ## handling errors

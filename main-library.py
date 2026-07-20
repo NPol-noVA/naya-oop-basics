@@ -1,9 +1,10 @@
 class Book:
-    def __init__(self,name,author):
+    def __init__(self,name,author,year):
 
        self.name= name
        self.author = author
 
+       self.year = year
 class Library: 
     def __init__(self):
         self.books = []
@@ -15,18 +16,22 @@ class Library:
         for k in self.books:
             print(f"Title: {k.name}")
             print(f"Author: {k.author}")
-            print()
+            print(f"Title: {k.year}")
+			print()
 
           	
 library = Library()
 while True: 
     print("what is your book (0 to finish)") 
-    b = input ("book: ")
+    b = input ("book: ").lower()
     if b == '0': 
-	    break 
-    print ("what is book author?")
-    t = input ("author: ")
-    book = Book(b,t)
+	   
+		break 
+    print ("what is book author? (- if unknown)")
+    t = input ("author: ").lower()
+	print ('what is publishing year')	
+    j = input ("year: ").lower()
+    book = Book(b,t,j)
     library.add_book(book)
-    
+    print ('successful operation')
 library.show_all() 

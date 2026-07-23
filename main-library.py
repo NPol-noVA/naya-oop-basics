@@ -1,79 +1,107 @@
 class Book:
-    def __init__(self,name,author,year):
+    def __init__(self, title, author, year):
+        self.title = title
+        self.author = author
+        self.year = year
+        self.is_borrowed = False
 
-       self.name= name
-       self.author = author
 
-       self.year = year
-class Library: 
+class Library:
     def __init__(self):
         self.books = []
-        
-    def add_book(self,book):
+
+    def add_book(self, book):
         self.books.append(book)
 
     def show_all(self):
-        for k in self.books:
-            print(f"Title: {k.name}")
-            print(f"Author: {k.author}")
-            print(f"Title: {k.year}")
-			print()
-	
+        if not self.books:
+            print("No books in the library.")
+            return
 
-    def borrow_book (self, title):
-        k = 0
-        for j in self.books:
-            if j.title == title and j.is_borrowed == False:
-                print ("This book is available and it is successfully borrowed")
-               
-				j.is_borrowed = True
-                k = 1
-        if k == 0:
-            print ("This book isn't available now")
-	def returning_book(self, title):
-        k = 0  
-        for j in self.books:
-            if j.title == title and j.is_borrowed :
-                j.is_borrowed = False
-                k = 1 
-        
-		 if k ==0 : 
-            print ("This book isn't borrowed from this library ") 
-                  	
+        for book in self.books:
+            print(f"Title: {book.title}")
+            print(f"Author: {book.author}")
+            print(f"Year: {book.year}")
+            status = "Borrowed" if book.is_borrowed else "Available"
+            print(f"Status: {status}")
+            print()
+
+    def borrow_book(self, title):
+        for book in self.books:
+            if book.title == title:
+                if not book.is_borrowed:
+                    book.is_borrowed = True
+                    print("This book has been successfully borrowed.")
+                else:
+                    print("This book is already borrowed.")
+                return
+
+        print("This book is not available in the library.")
+
+    def returning_book(self, title):
+        for book in self.books:
+            if book.title == title:
+                if book.is_borrowed:
+                    book.is_borrowed = False
+                    print("The book has been returned successfully.")
+                else:
+                    print("This book was not borrowed.")
+                return
+
+        print("This book does not exist in the library.")
+
+
 library = Library()
-while True: 
-    print("what is your book (0 to finish)") 
-    b = input ("book: ").lower()
-    if b == '0': 
-	   
-		break 
-    print ("what is book author? (- if unknown)")
-    t = input ("author: ").lower()
-	print ('what is publishing year')	
-    j = input ("year: ").lower()
-    book = Book(b,t,j)
+
+while True:
+    print("Enter your book (0 to finish)")
+    b = input("Book: ").lower()
+
+    if b == "0":
+        break
+
+
+	
+    print("What is the book author? ( if unknown)")
+    t = input("Author: ").lower()
+
+    print("What is the publishing year?")
+    y = input("Year: ")
+
+    book = Book(b, t, y)
     library.add_book(book)
-    print ('successful operation')
-library.show_all() 
-x = 3
-while x in {1,2,3}:
-	print ("choose what you want")
-	print ("1.borrow  book ")
-	print ("2.return book")
-	
-	
-	print ("3.exit") 
-	x =int (input())
-	if x == 1:
-		s = input("Book Title:").lower()
-		borrow_book(s)
-	elif x == 2: 
-		s = input("Book Title").lower()
-		returning_book(s)
-	elif x == 3:
-		exit()
-	else: 
-		print ("invalid !, please try again ") 
-    
-else 
-p	print("enter 1 for borrowing or exit by entering 0)
+
+    print("successful operation")
+
+library.show_all()
+
+while True:
+    print("Choose what you want:")
+    print("1. Borrow book")
+    print("2. Return book")
+    print("3. Show all books")
+    print("4. Exit")
+
+    try:
+        x = int(input("Enter your choice: "))
+
+        if x == 1:
+            s = input("Book Title: ").lower()
+            library.borrow_book(s)
+
+        elif x == 2:
+            s = input("Book Title: ").lower()
+            library.returning_book(s)
+
+        elif x == 3:
+            library.show_all()
+
+        elif x == 4:
+            print("Goodbye!")
+            break
+
+        else:
+            print("Invalid choice! Please try again.")
+
+    except ValueError:
+        print("Please enter a valid number.")

@@ -50,6 +50,21 @@ python3 main-library.py
 
 ## handling errors
 if there's any error for example in letter case then the function lower() will fix it and enters it in small letters even if the user writes upper case letters or wrong case letters 
-year is string because maybe there're books without known year of publishing 
-it is also possible for user to stop inserting books just by entering 0 as input 
-if there's unknown author or year they can just put - 
+  Menu input is wrapped in try/except so entering letters instead of numbers does not crash the program.
+  Book titles and author names are converted to lowercase using lower(), making searches case-insensitive.
+  If the user tries to borrow or return a book that does not exist, a friendly message is displayed.
+  The user can stop entering books by typing 0.
+  If the author or publication year is unknown, - can be entered.
+  The publication year is stored as a string because some books may have an unknown year.
+  The menu keeps running until the user chooses to exit.
+
+
+
+
+
+## update Features
+ Borrow Book feature.
+ Return Book feature.
+Each Book object will be checked if available or not before change, and its status will be also checked
+A book cannot be borrowed if it is already borrowed.
+A returned book becomes available to borrow again and it can't be returned if it is available because this means that there is an error maybe it is not from our library

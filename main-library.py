@@ -55,10 +55,25 @@ while True:
     library.add_book(book)
     print ('successful operation')
 library.show_all() 
-print ("if you want to borrow a book enter 1")
-x = int (input())
-if x == 1:
-	s = input("Book Title:").lower()
-	borrow_book(s)
-
+x = 3
+while x in {1,2,3}:
+	print ("choose what you want")
+	print ("1.borrow  book ")
+	print ("2.return book")
+	
+	
+	print ("3.exit") 
+	x =int (input())
+	if x == 1:
+		s = input("Book Title:").lower()
+		borrow_book(s)
+	elif x == 2: 
+		s = input("Book Title").lower()
+		returning_book(s)
+	elif x == 3:
+		exit()
+	else: 
+		print ("invalid !, please try again ") 
     
+else 
+p	print("enter 1 for borrowing or exit by entering 0)

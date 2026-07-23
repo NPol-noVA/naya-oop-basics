@@ -45,10 +45,14 @@ python3 main-library.py
 ✓ The GitHub repository is public and accessible to anyone with the link and  opens correctly in a private/incognito browser window.
 ✓ each required files have been finished and pushed to GitHub.
 ✓ The project runs without errors.
+### update: 
+✓ Read through the code and clean up naming, spacing, and structure 
+✓ Add short, meaningful comments where helpful
+✓ Make sure the README is complete and clear
+✓ Confirm the whole thing runs from top to bottom without errors
 
 
-
-## handling errors
+## handling errors (updated)
 if there's any error for example in letter case then the function lower() will fix it and enters it in small letters even if the user writes upper case letters or wrong case letters 
   Menu input is wrapped in try/except so entering letters instead of numbers does not crash the program.
   Book titles and author names are converted to lowercase using lower(), making searches case-insensitive.
